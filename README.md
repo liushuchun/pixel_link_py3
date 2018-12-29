@@ -7,7 +7,7 @@ PLEASE CHECK EXSITING ISSUES BEFORE OPENNING YOUR OWN ONE. IF A SAME OR SIMILAR 
 # Installation
 ## Clone the repo
 ```
-git clone --recursive git@github.com:ZJULearning/pixel_link.git
+fork from git@github.com:ZJULearning/pixel_link.git
 ```
 
 Denote the root directory path of pixel_link by `${pixel_link_root}`. 
@@ -19,9 +19,9 @@ export PYTHONPATH=${pixel_link_root}/pylib/src:$PYTHONPATH
 
 ## Prerequisites
  (Only tested on) Ubuntu14.04 and 16.04 with:
-* Python 2.7
+* Python 3.5
 * Tensorflow-gpu >= 1.1
-* opencv2
+* opencv3.2
 * setproctitle
 * matplotlib
 
