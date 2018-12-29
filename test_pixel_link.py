@@ -19,7 +19,7 @@ import config
 # =========================================================================== #
 # Checkpoint and running Flags
 # =========================================================================== #
-tf.app.flags.DEFINE_string('checkpoint_path', None, 
+tf.app.flags.DEFINE_string('checkpoint_path', "conv2_2/model.ckpt-73018",
    'the path of pretrained model to be used. If there are checkpoints\
     in train_dir, this config will be ignored.')
 
@@ -47,7 +47,7 @@ tf.app.flags.DEFINE_string(
 tf.app.flags.DEFINE_string(
     'dataset_split_name', 'test', 'The name of the train/test split.')
 tf.app.flags.DEFINE_string('dataset_dir', 
-           util.io.get_absolute_path('~/dataset/ICDAR2015/Challenge4/ch4_test_images'), 
+           util.io.get_absolute_path('samples'),
            'The directory where the dataset files are stored.')
 
 tf.app.flags.DEFINE_integer('eval_image_width', 1280, 'Train image size')
@@ -91,7 +91,7 @@ def to_txt(txt_path, image_name,
               line = "%d, %d, %d, %d, %d, %d, %d, %d\n"%tuple(values)
               lines.append(line)
         util.io.write_lines(filename, lines)
-        print 'result has been written to:', filename
+        print('result has been written to:', filename)
     
     mask = pixel_link.decode_batch(pixel_pos_scores, link_pos_scores)[0, ...]
     bboxes = pixel_link.mask_to_bboxes(mask, image_data.shape)
@@ -153,7 +153,7 @@ def test():
                     image:image_data
             })
                
-            print '%d/%d: %s'%(iter + 1, len(image_names), image_name)
+            print('%d/%d: %s'%(iter + 1, len(image_names), image_name))
             to_txt(txt_path,
                     image_name, image_data, 
                     pixel_pos_scores, link_pos_scores)
@@ -161,9 +161,9 @@ def test():
             
     # create zip file for icdar2015
     cmd = 'cd %s;zip -j %s %s/*'%(dump_path, zip_path, txt_path);
-    print cmd
+    print(cmd)
     util.cmd.cmd(cmd);
-    print "zip file created: ", util.io.join_path(dump_path, zip_path)
+    print("zip file created: ", util.io.join_path(dump_path, zip_path))
 
          
 

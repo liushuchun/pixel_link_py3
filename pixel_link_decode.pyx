@@ -50,7 +50,7 @@ def decode_image_by_join(pixel_scores, link_scores,
                  pixel_conf_threshold, link_conf_threshold):
     pixel_mask = pixel_scores >= pixel_conf_threshold
     link_mask = link_scores >= link_conf_threshold
-    points = zip(*np.where(pixel_mask))
+    points = list(zip(*np.where(pixel_mask)))
     h, w = np.shape(pixel_mask)
     group_mask = dict.fromkeys(points, -1)
     def find_parent(point):

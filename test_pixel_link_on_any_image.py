@@ -19,7 +19,7 @@ import config
 # =========================================================================== #
 # Checkpoint and running Flags
 # =========================================================================== #
-tf.app.flags.DEFINE_string('checkpoint_path', None, 
+tf.app.flags.DEFINE_string('checkpoint_path', "./conv2_2/model.ckpt-73018",
    'the path of pretrained model to be used. If there are checkpoints\
     in train_dir, this config will be ignored.')
 
@@ -31,13 +31,13 @@ tf.app.flags.DEFINE_float('gpu_memory_fraction', -1,
 # Dataset Flags.
 # =========================================================================== #
 tf.app.flags.DEFINE_string(
-    'dataset_dir', 'None', 
+    'dataset_dir', 'samples',
     'The directory where the dataset files are stored.')
 
-tf.app.flags.DEFINE_integer('eval_image_width', None, 'resized image width for inference')
-tf.app.flags.DEFINE_integer('eval_image_height',  None, 'resized image height for inference')
-tf.app.flags.DEFINE_float('pixel_conf_threshold',  None, 'threshold on the pixel confidence')
-tf.app.flags.DEFINE_float('link_conf_threshold',  None, 'threshold on the link confidence')
+tf.app.flags.DEFINE_integer('eval_image_width', 1280, 'resized image width for inference')
+tf.app.flags.DEFINE_integer('eval_image_height',  768, 'resized image height for inference')
+tf.app.flags.DEFINE_float('pixel_conf_threshold',  0.6, 'threshold on the pixel confidence')
+tf.app.flags.DEFINE_float('link_conf_threshold',  0.6, 'threshold on the link confidence')
 
 
 tf.app.flags.DEFINE_bool('using_moving_average', True, 
@@ -139,7 +139,7 @@ def test():
             draw_bboxes(image_data, bboxes_det, util.img.COLOR_RGB_RED)
 #             print util.sit(pixel_score)
 #             print util.sit(mask)
-            print util.sit(image_data)
+            print(util.sit(image_data))
                 
         
 def main(_):

@@ -109,7 +109,7 @@ def convert_to_example(image_data, filename, labels, labels_text, bboxes, orient
     image_format = b'JPEG'
     oriented_bboxes = np.asarray(oriented_bboxes)
     if len(bboxes) == 0:
-        print filename, 'has no bboxes'
+        print(filename, 'has no bboxes')
      
     bboxes = np.asarray(bboxes)
     def get_list(obj, idx):

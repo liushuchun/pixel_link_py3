@@ -94,7 +94,7 @@ class SynthTextDataFetcher():
         rect_bboxes = []
         full_bboxes = []
         txts = []
-        for word_idx in xrange(num_words):
+        for word_idx in range(num_words):
             xys = self.get_word_bbox(image_idx, word_idx);       
             is_valid, min_x, min_y, max_x, max_y, xys = self.normalize_bbox(xys, width = w, height = h)
             if not is_valid:

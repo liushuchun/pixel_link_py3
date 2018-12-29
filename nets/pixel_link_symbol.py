@@ -244,7 +244,7 @@ class PixelLinkNet(object):
         
         def OHNM_batch(neg_conf, pos_mask, neg_mask):
             selected_neg_mask = []
-            for image_idx in xrange(batch_size):
+            for image_idx in range(batch_size):
                 image_neg_conf = neg_conf[image_idx, :]
                 image_neg_mask = neg_mask[image_idx, :]
                 image_pos_mask = pos_mask[image_idx, :]

@@ -112,9 +112,9 @@ def _set_image_shape(shape):
     global train_image_shape
     global score_map_shape
     global image_shape
-    
-    assert w % 4 == 0
-    assert h % 4 == 0
+    print("hello",h,w)
+    assert(w % 4 == 0)
+    assert(h % 4 == 0)
     
     train_image_shape = [h, w]
     score_map_shape = (h / strides[0], w / strides[0])
@@ -154,7 +154,7 @@ def init_config(image_shape, batch_size = 1,
     num_clones = len(gpus)
     
     global clone_scopes
-    clone_scopes = ['clone_%d'%(idx) for idx in xrange(num_clones)]
+    clone_scopes = ['clone_%d'%(idx) for idx in range(num_clones)]
     
     _set_batch_size(batch_size)
     
